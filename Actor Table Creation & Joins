@@ -1,0 +1,31 @@
+create table Actors(ID integer primary key, name text, movies text, character text);
+
+insert into actors (name, movies, character) values ('Tom Holland', 'Spiderman Homecoming', 'Peter Parker');
+
+insert into actors (name, movies, character) values ('Robert Downey Jr.', 'Iron Man', 'Tony Stark');
+
+insert into actors (name, movies, character)values ('Chris Hemsworth', 'Thor : Ragnarok', 'Thor'); 
+
+insert into actors (name, movies, character) values ('Chris Evans', 'Captain America: Civil War', 'Steve Rodgers');
+
+insert into actors (name, movies, character) values ('Paul Rudd', 'Ant-Man and The Wasp', 'Ant-Man');
+
+create table Hobbies(id integer primary key, Actor_ID text, hobby text);
+insert into hobbies (Actor_id, hobby) values (1, 'Dancing');
+insert into hobbies (Actor_id, hobby) values (2, 'Martial Arts');
+insert into hobbies (Actor_id, hobby) values (3, 'Cooking');
+insert into hobbies (Actor_id, hobby) values (4, 'Tap Dancing');
+insert into hobbies (Actor_id, hobby) values (5, 'Painting');
+
+create table birth (id integer primary key, birthday integer, age integer, birth_town text);
+insert into birth (Birthday, age, Birth_Town) values ('1996-01-06', 25, 'Kingston upon Thames');
+insert into birth (Birthday, age, Birth_Town) values ('1965-04-04', 56, 'Manhattan'); 
+insert into birth (Birthday, age, Birth_Town) values ('1983-11-08', 38, 'Melbourne');
+insert into birth (Birthday, age, Birth_Town) values ( '1981-13-06', 40, 'Boston');
+insert into birth (Birthday, age, Birth_Town) values ('1969-06-04', 52, 'Passaic'); 
+
+select actors.name, actors.movies, actors.character, hobbies.hobby, birth.birthday, birth.age, birth.birth_town from actors
+join birth
+on actors.id = birth.id
+join hobbies
+on hobbies.id = actors.id;
